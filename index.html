@@ -9,61 +9,144 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* CSS UNTUK TOMBOL WHATSAPP MELAYANG */
-        .wa-floating-btn {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
-            z-index: 1000;
+        /* Desain Khusus Halaman Tentang */
+        .about-hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), #080808),
+                        url('https://images.unsplash.com/photo-1592914610354-fd354ea45e48?q=80&w=1600') center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            text-align: center;
         }
 
-        .wa-floating-btn:hover {
-            transform: scale(1.1);
-            background-color: #128c7e;
-            color: white;
+        .section-label {
+            color: var(--gold);
+            letter-spacing: 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 20px;
         }
 
-        /* Animasi denyut halus agar terlihat mewah */
-        .wa-floating-btn::after {
-            content: '';
-            position: absolute;
+        .editorial-grid {
+            padding: 150px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .editorial-image {
+            position: relative;
+            height: 750px;
+        }
+
+        .editorial-image img {
             width: 100%;
             height: 100%;
-            background-color: #25d366;
-            border-radius: 50%;
-            z-index: -1;
-            animation: wa-pulse 2s infinite;
+            object-fit: cover;
+            box-shadow: 30px 30px 0px -10px rgba(201, 164, 76, 0.1);
         }
 
-        @keyframes wa-pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.6); opacity: 0; }
+        .floating-cite {
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            background: var(--gold);
+            color: black;
+            padding: 40px;
+            max-width: 300px;
+            font-family: 'Playfair Display';
+            font-style: italic;
+            font-size: 1.2rem;
         }
 
-        /* Penyesuaian layar kecil */
-        @media (max-width: 768px) {
-            .wa-floating-btn {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 25px;
-            }
+        .philosophy-card {
+            background: #0d0d0d;
+            padding: 80px;
+            border: 1px solid rgba(201, 164, 76, 0.1);
+            text-align: center;
+            margin: 100px 8%;
+        }
+
+        .parallax-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1615485244910-97f96095963a?q=80&w=1600') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 100px 0;
+        }
+
+        @media (max-width: 992px) {
+            .editorial-grid { grid-template-columns: 1fr; gap: 60px; padding: 80px 5%; }
+            .editorial-image { height: 500px; }
+            .floating-cite { right: 0; bottom: -20px; padding: 20px; font-size: 1rem; }
         }
     </style>
+    <style>
+    .wa-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        z-index: 9999; /* Agar selalu di atas elemen lain */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .wa-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        color: white;
+    }
+
+    /* Efek denyut (pulsing) untuk menarik perhatian */
+    .wa-float::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #25d366;
+        border-radius: 50%;
+        z-index: -1;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* Penyesuaian untuk layar HP agar tidak menutupi konten */
+    @media screen and (max-width: 768px) {
+        .wa-float {
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
+            font-size: 25px;
+        }
+    }
+</style>
+<a href="https://wa.me/628811205935?text=Hallo%20min%2C%20minta%20link%20pembeliannya%20dong" 
+   class="wa-float" 
+   target="_blank" 
+   rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+</a>
 </head>
 <body>
     
