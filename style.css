@@ -85,14 +85,14 @@ img {
     opacity: 1;
 }
 
-/* --- HERO SECTION (HOME) --- */
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                url('https://images.unsplash.com/photo-1557827983-012eb6ea8dc1?q=80&w=1600') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            url('assets/image4.jpg') center/cover no-repeat;
     text-align: center;
     padding: 0 5%;
 }
@@ -137,11 +137,6 @@ img {
 .btn-outline:hover { background: var(--white); color: black; }
 
 /* --- GALLERY (KOLEKSI) --- */
-.gallery-header {
-    text-align: center;
-    padding: 180px 5% 100px;
-}
-
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -180,32 +175,31 @@ img {
 .product-card:hover .product-img { clip-path: inset(3% 3% 3% 3%); }
 .product-card:hover .product-img img { transform: scale(1.1); filter: grayscale(0%) brightness(1); }
 
-/* --- FEATURED SECTION --- */
-.featured { background: #050505; }
-.featured-container {
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    padding: 120px 8%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.featured-image { flex: 1.2; height: 700px; overflow: hidden; }
-.featured-image img { width: 100%; height: 100%; object-fit: cover; }
-.featured-text { flex: 0.8; }
-.featured-text h2 { font-size: 3.5rem; margin: 25px 0; font-style: italic; font-weight: 300; }
-
-/* --- FEATURES GRID --- */
-.features-grid { padding: 120px 0; }
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 50px;
+/* --- PHILOSOPHY & ABOUT UTILITIES --- */
+.philosophy {
+    padding: 140px 0;
     text-align: center;
 }
 
-.icon-wrap i { font-size: 30px; color: var(--gold); margin-bottom: 20px; }
+.container-small {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 8%;
+}
+
+.divider {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin: 40px auto;
+    opacity: 0.5;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
 
 /* --- FOOTER --- */
 footer {
@@ -216,281 +210,102 @@ footer {
 }
 
 .logo-footer { color: var(--gold); letter-spacing: 12px; font-size: 26px; margin-bottom: 40px; }
-.social-links a { color: var(--white); margin: 0 15px; font-size: 18px; opacity: 0.5; transition: 0.3s; }
-.social-links a:hover { opacity: 1; color: var(--gold); }
+.social-links a { 
+    color: var(--gold); 
+    margin: 0 15px; 
+    font-size: 24px; 
+    transition: 0.3s; 
+    text-decoration: none; 
+}
+.social-links a:hover { color: var(--white); transform: translateY(-3px); }
 
-/* --- MOBILE RESPONSIVE --- */
-.menu-toggle { display: none; color: var(--gold); font-size: 22px; cursor: pointer; }
-
-@media (max-width: 992px) {
-    .featured-container { flex-direction: column; gap: 40px; text-align: center; }
-    .featured-image { width: 100%; height: 450px; }
-    .product-grid { grid-template-columns: 1fr; gap: 80px; }
-    .product-card:nth-child(even) { margin-top: 0; }
+/* --- MOBILE RESPONSIVE (CONSOLIDATED) --- */
+.menu-toggle {
+    display: none;
+    color: var(--gold);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: 0.3s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .menu-toggle { display: block; }
+    
     .nav-links {
-        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-        background: var(--dark-bg); flex-direction: column; justify-content: center;
-        align-items: center; transition: 0.5s;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--dark-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.6s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     }
+
     .nav-links.active { right: 0; }
     .nav-links li { margin: 20px 0; }
-}
 
-/* --- LOCATION BAR (NEW) --- */
-.location-bar {
-    background: #050505;
-    padding: 35px 0;
-    border-bottom: 1px solid rgba(201, 164, 76, 0.1);
-    text-align: center; /* Membuat teks Paris-Jakarta-Dubai rata tengah */
-    width: 100%;
-}
-
-.location-bar span {
-    font-size: 10px;
-    letter-spacing: 6px;
-    color: var(--gray);
-    text-transform: uppercase;
-    display: inline-block;
-}
-
-/* --- PHILOSOPHY SECTION (NEW) --- */
-.philosophy {
-    padding: 140px 0;
-    background: var(--dark-bg);
-    text-align: center; /* Kunci utama teks rata tengah */
-}
-
-.container-small {
-    max-width: 750px; /* Batasi lebar agar teks tidak terlalu lebar ke samping */
-    margin: 0 auto;
-    padding: 0 8%;
-}
-
-.philosophy .label {
-    display: block;
-    color: var(--gold);
-    letter-spacing: 5px;
-    font-size: 11px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.philosophy h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    line-height: 1.2;
-    margin-bottom: 30px;
-}
-
-.divider {
-    width: 50px;
-    height: 1px;
-    background: var(--gold);
-    margin: 40px auto; /* 'auto' memastikan garis berada di tengah */
-    opacity: 0.5;
-}
-
-.philosophy p {
-    font-size: 16px;
-    line-height: 1.9;
-    color: var(--gray);
-    font-weight: 300;
-    /* Teks ini otomatis rata tengah karena text-align di parent (.philosophy) */
-}
-
-/* --- OPTIONAL: LINK GOLD STYLE --- */
-.link-gold {
-    color: var(--gold);
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 4px;
-    font-weight: 600;
-    transition: var(--transition-fast);
-    display: inline-block;
-}
-
-.link-gold:hover {
-    letter-spacing: 6px; /* Efek expansi saat hover */
-    opacity: 0.8;
-}
-
-.social-links a {
-    color: #d4af37; /* Warna Emas */
-    font-size: 24px;
-    margin: 0 15px;
-    transition: 0.3s;
-    text-decoration: none;
-}
-
-.social-links a:hover {
-    color: #ffffff; /* Berubah jadi putih saat diarahkan kursor */
-    transform: translateY(-3px);
-}
-
-/* Styling Tombol Menu */
-.menu-toggle {
-    display: none; /* Sembunyi di desktop */
-    font-size: 1.8rem;
-    color: #d4af37; /* Warna emas sesuai tema */
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    z-index: 1001; /* Pastikan di atas menu */
-}
-
-/* Saat di HP/Tablet */
-@media (max-width: 992px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none; /* Sembunyi sebelum diklik */
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(8, 8, 8, 0.95);
-        padding: 20px 0;
-        text-align: center;
-    }
-
-    /* Class yang dipicu oleh JavaScript */
-    .nav-links.active {
-        display: flex;
-    }
+    /* Layout Adjustments */
+    .hero h1 { font-size: 3.2rem; letter-spacing: 8px; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .btn-gold, .btn-outline { width: 100%; max-width: 280px; text-align: center; }
     
-    /* Animasi putar dikit saat jadi silang agar keren */
-    .menu-toggle i.fa-times {
-        transform: rotate(90deg);
-        color: #ffffff; /* Bisa diganti warna lain saat menu buka */
-    }
-    /* --- TAMBAHKAN ATAU TIMPA BAGIAN MOBILE RESPONSIVE ANDA DENGAN INI --- */
+    .product-grid { grid-template-columns: 1fr; gap: 80px; }
+    .product-card:nth-child(even) { margin-top: 0; }
+    .product-img { height: 450px; }
 
-@media (max-width: 992px) {
-    /* Navbar & Logo */
-    .navbar {
-        padding: 15px 6%; /* Lebih ramping di HP */
-    }
-    
-    .logo {
-        font-size: 18px; /* Logo sedikit mengecil agar proporsional */
-        letter-spacing: 4px;
-    }
-
-    /* Hero Section - Kunci Tampilan Mewah di HP */
-    .hero {
-        padding-top: 80px; /* Jarak dari navbar */
-    }
-
-    .hero h1 {
-        font-size: 3.2rem; /* Ukuran teks Revelation di HP */
-        letter-spacing: 8px;
-        line-height: 1.1;
-        margin-bottom: 15px;
-    }
-
-    .sub-title {
-        letter-spacing: 5px;
-        font-size: 10px;
-    }
-
-    .hero p {
-        font-size: 13px;
-        padding: 0 10%;
-        opacity: 0.8;
-    }
-
-    .hero-btns {
-        flex-direction: column; /* Tombol jadi tumpuk atas-bawah */
-        gap: 15px;
-        width: 100%;
-        max-width: 280px; /* Batasi lebar tombol agar tidak terlalu panjang */
-        margin: 40px auto 0;
-    }
-
-    .btn-gold, .btn-outline {
-        padding: 18px; /* Area klik lebih besar (Thumb-friendly) */
-        text-align: center;
-        width: 100%;
-    }
-
-    /* Featured Section (Oud De Miftah) */
-    .featured-container {
-        flex-direction: column;
-        padding: 60px 6%;
-        gap: 30px;
-    }
-
-    .featured-image {
-        width: 100%;
-        height: 400px; /* Tinggi gambar diatur agar tidak terlalu panjang */
-    }
-
-    .featured-text {
-        padding: 0;
-        text-align: center;
-    }
-
-    .featured-text h2 {
-        font-size: 2.5rem; /* Judul produk sedikit mengecil */
-    }
-
-    /* Philosophy Section */
-    .philosophy {
-        padding: 80px 0;
-    }
-
-    .philosophy h2 {
-        font-size: 1.8rem;
-        padding: 0 5%;
-    }
-
-    /* Grid Fitur (3 Icon) */
-    .features-grid {
-        padding: 60px 6%;
-    }
-
-    .grid-3 {
-        grid-template-columns: 1fr; /* Jadi satu baris satu fitur */
-        gap: 60px;
-    }
-
-    .feature-item {
-        padding: 0 10%;
-    }
-
-    /* Footer */
-    .logo-footer {
-        font-size: 20px;
-        letter-spacing: 8px;
-    }
+    .grid-2 { grid-template-columns: 1fr; }
+    .philosophy { padding: 80px 0; }
 }
 
-/* Fix untuk layar sangat kecil (iPhone SE / HP kecil) */
 @media (max-width: 380px) {
-    .hero h1 {
-        font-size: 2.8rem;
+    .hero h1 { font-size: 2.5rem; }
+    .logo { font-size: 18px; letter-spacing: 3px; }
+}
+
+/* --- FIX VISI MISI ALIGNMENT --- */
+.vision-box, .mission-box {
+    text-align: left; /* Mengembalikan teks ke rata kiri */
+    padding: 30px;
+}
+
+.mission-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.mission-box li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.mission-box i {
+    margin-top: 5px; /* Menyelaraskan icon centang dengan teks */
+    margin-right: 15px;
+    color: var(--gold);
+}
+
+/* Responsif untuk HP agar tetap rapi */
+@media (max-width: 992px) {
+    .vision-box, .mission-box {
+        text-align: center; /* Di HP lebih bagus rata tengah */
+        padding: 20px 10px;
     }
     
-    .location-bar span {
-        letter-spacing: 3px;
-        font-size: 8px;
+    .mission-box li {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-/* Animasi sederhana agar saat buka menu terasa smooth */
-.nav-links {
-    transition: transform 0.6s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    transform: translateY(-100%); /* Menu muncul dari atas */
-}
-
-.nav-links.active {
-    display: flex;
-    transform: translateY(0);
-}
+    .mission-box i {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }

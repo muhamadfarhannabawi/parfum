@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miftah Parfum | Esensi Kemewahan & Keanggunan</title>
+    <title>Miftand Parfume | Esensi Kemewahan & Keanggunan</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -174,6 +174,64 @@
             right: 20px;
             font-size: 25px;
         }
+        /* Perbaikan Rata Tengah Features Grid */
+.features-grid {
+    padding: 100px 0;
+    text-align: center; /* Membuat teks judul dan paragraf di dalamnya rata tengah */
+}
+
+.grid-3 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap; /* Agar responsif di HP */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Membuat icon, h3, dan p lurus di tengah */
+    padding: 20px;
+}
+
+.icon-wrap {
+    width: 80px;
+    height: 80px;
+    background: rgba(201, 164, 76, 0.1); /* Warna emas transparan */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: var(--gold);
+    font-size: 2rem;
+}
+
+.feature-item h3 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.feature-item p {
+    color: var(--gray);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Penyesuaian Mobile */
+@media (max-width: 768px) {
+    .grid-3 {
+        flex-direction: column;
+        align-items: center;
+    }
+}
     }
 </style>
 
@@ -187,7 +245,7 @@
 <body>
     
     <nav class="navbar">
-        <div class="logo">MIFTAH</div>
+        <div class="logo">MIFTAND PARFUME</div>
         <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Beranda</a></li>
@@ -209,14 +267,12 @@
         </div>
         
         <div class="scroll-indicator">
-            <p>GULIR</p>
+            <p></p>
             <div class="scroll-line"></div>
         </div>
     </header>
 
-    <div class="location-bar">
-        <span>Paris &bull; Jakarta &bull; Dubai</span>
-    </div>
+    
 
     <section class="philosophy">
         <div class="container-small">
@@ -232,13 +288,8 @@
             <div class="featured-image">
                 <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=1000" alt="Parfum Unggulan">
             </div>
-            <div class="featured-text">
-                <span class="label">Mahakarya Utama</span>
-                <h2>Oud De Miftah</h2>
-                <p>Perpaduan harmonis antara kayu gaharu premium dari Kalimantan, mawar Damaskus, dan sentuhan vanila Madagascar yang hangat.</p>
-                <div class="cta-wrapper">
-                    <a href="koleksi.html" class="link-gold">LIHAT KOLEKSI LENGKAP</a>
-                </div>
+    
+
             </div>
         </div>
     </section>
@@ -267,7 +318,7 @@
 
     <footer>
         <div class="footer-content">
-            <h2 class="logo-footer">MIFTAH</h2>
+            <h2 class="logo-footer">MIFTAND PARFUME</h2>
             <div class="social-links">
                 <a href="https://www.instagram.com/miftandofficial.co?igsh=MWM3c3p2ZnVmM3FmbA==" target="_blank" title="Instagram">
                     <i class="fab fa-instagram"></i>
@@ -277,7 +328,7 @@
                     <i class="fab fa-tiktok"></i>
                 </a>
             </div>
-            <p class="copyright">&copy; 2026 MIFTAH PARFUM. Dibuat dengan Sepenuh Hati.</p>
+            <p class="copyright">&copy; 2026 MIFTAND PARFUM. Dibuat dengan Sepenuh Hati.</p>
         </div>
     </footer>
 
