@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.style.background = 'rgba(11, 11, 11, 0.98)';
             navbar.style.borderBottom = '1px solid rgba(201, 164, 76, 0.3)';
         } else {
-            navbar.style.padding = '20px 8%';
+            navbar.style.padding = '0px 8%';
             navbar.style.background = 'rgba(11, 11, 11, 0.9)';
             navbar.style.borderBottom = '1px solid rgba(201, 164, 76, 0.1)';
         }

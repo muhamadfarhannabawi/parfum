@@ -45,7 +45,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 8%;
+    padding: 0px 8%;
     background: rgba(8, 8, 8, 0.9);
     backdrop-filter: blur(15px);
     position: fixed;
@@ -91,9 +91,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Ubah 'cover' menjadi 'contain' */
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('assets/image4.jpg') center/contain no-repeat;
+            url('assets/image4.jpg') center/cover no-repeat;
     text-align: center;
     padding: 0 5%;
 }
