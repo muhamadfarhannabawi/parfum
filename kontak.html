@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami — MIFTAH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #c9a44c;
+            --black: #080808;
+            --dark-gray: #121212;
+            --white: #ffffff;
+        }
+
+        body { 
+            background-color: var(--black); 
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201, 164, 76, 0.1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            font-weight: 300;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        /* --- MENU MOBILE TENGAH --- */
+        @media (max-width: 992px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none; 
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(8, 8, 8, 0.98);
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                z-index: 1050;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { font-size: 1.5rem; letter-spacing: 5px; }
+        }
+
+        /* --- CONTENT --- */
+        .contact-header { padding: 150px 0 60px; text-align: center; }
+        .sub-title { display: block; color: var(--gold); letter-spacing: 10px; text-transform: uppercase; font-size: 11px; margin-bottom: 20px; }
+        .contact-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-style: italic; margin: 0; }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 5%;
+        }
+
+        .location-card { 
+            background: #0d0d0d; 
+            border: 1px solid rgba(201, 164, 76, 0.15); 
+            padding: 30px; 
+            margin-bottom: 30px;
+        }
+
+        .method-label { color: var(--gold); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .main-address { display: block; margin-bottom: 20px; line-height: 1.6; color: var(--white); text-decoration: none; font-size: 14px; }
+
+        .map-link-btn {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 5px;
+        }
+
+        .map-frame-wrapper { 
+            width: 100%; height: 250px; 
+            filter: grayscale(1) invert(0.9); 
+            border: 1px solid #333;
+        }
+
+        /* --- FORM --- */
+        .luxury-form { background: rgba(20, 20, 20, 0.6); padding: 40px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .floating-group { position: relative; margin-bottom: 35px; }
+        .floating-group input, .floating-group textarea {
+            width: 100%; background: transparent; border: none; border-bottom: 1px solid #333; padding: 10px 0; color: #fff; outline: none;
+        }
+        .floating-group label { position: absolute; top: 10px; left: 0; color: #666; font-size: 12px; transition: 0.3s; pointer-events: none; text-transform: uppercase; }
+        .floating-group input:focus ~ label, .floating-group input:not(:placeholder-shown) ~ label,
+        .floating-group textarea:focus ~ label, .floating-group textarea:not(:placeholder-shown) ~ label {
+            top: -20px; font-size: 10px; color: var(--gold);
+        }
+
+        .btn-send {
+            background: var(--gold); color: #000; border: none; padding: 20px; width: 100%; font-weight: 800; cursor: pointer; transition: 0.4s; letter-spacing: 3px; text-transform: uppercase;
+        }
+        .btn-send:hover { background: white; color: black; }
+
+        /* --- WHATSAPP MELAYANG --- */
+        .wa-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .wa-float:hover { transform: scale(1.1); background-color: #128c7e; }
+        
+        /* Efek Denyut */
+        .wa-float::after {
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%;
+            background-color: #25d366;
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        footer { padding: 60px 0; border-top: 1px solid #1a1a1a; text-align: center; }
+        .social-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .social-links a { color: var(--white); font-size: 20px; }
+
+        @media (max-width: 992px) { 
+            .contact-wrapper { grid-template-columns: 1fr; } 
+            .wa-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">MIFTAH</a>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="koleksi.html">Koleksi</a></li>
+            <li><a href="tentang.html">Tentang Kami</a></li>
+            <li><a href="kontak.html" class="active">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header class="contact-header">
+        <span class="sub-title">Layanan Pelanggan</span>
+        <h1>Hubungi Kami</h1>
+    </header>
+
+    <div class="contact-wrapper">
+        <div class="info-panel">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2rem; margin-bottom: 30px;">Hadirkan kemewahan aroma di keseharian Anda.</h2>
+            
+            <div class="location-card">
+                <span class="method-label">Kunjungi Kami</span>
+                <p class="main-address">
+                    Gg. Pelangi 4, Lb. Wangi, Kec. Sepatan Tim., Kabupaten Tangerang, Banten 15520
+                </p>
+                
+                <a href="https://maps.google.com/?q=Miftah+Parfum" target="_blank" class="map-link-btn">
+                    BUKA DI GOOGLE MAPS <i class="fas fa-location-dot"></i>
+                </a>
+                
+                <div class="map-frame-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0673070409893!2d106.6342!3d-6.1214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDcnMTcuMCJTIDEwNiwzOCcwMy4xIkU!5e0!3m2!1sid!2sid!4v1700000000000" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="contact-method">
+                <span class="method-label">Konsultasi Pribadi</span>
+                <a href="https://wa.me/628811205935?text=Halo%20min%2C%20minta%20link%20pembeliannya%20dong" 
+                   target="_blank" style="text-decoration: none; color: white; font-size: 1.3rem; font-weight: 600;">
+                    <i class="fab fa-whatsapp" style="color: #25D366;"></i> +62 881 1205 935
+                </a>
+            </div>
+        </div>
+
+        <div class="luxury-form">
+            <div class="floating-group">
+                <input type="text" id="name" placeholder=" " required>
+                <label>Nama Lengkap</label>
+            </div>
+            <div class="floating-group">
+                <input type="text" id="product" placeholder=" ">
+                <label>Produk Pilihan</label>
+            </div>
+            <div class="floating-group">
+                <textarea id="message" rows="4" placeholder=" " required></textarea>
+                <label>Pesan Khusus</label>
+            </div>
+
+            <button type="button" class="btn-send" onclick="sendToWhatsApp()">
+                Kirim Pesan <i class="fab fa-whatsapp"></i>
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/miftandofficial.co" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@miftandofficial.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="font-size: 10px; color: #555;">© 2026 MIFTAH PARFUM. Dibuat dengan Sepenuh Hati.</p>
+    </footer>
+
+    <a href="https://wa.me/628811205935?text=Halo%20min%2C%20minta%20link%20pembeliannya%20dong" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // 1. Logika Menu Mobile
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navList.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navList.classList.contains('active')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // 2. Fungsi Kirim WhatsApp Otomatis
+        function sendToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const product = document.getElementById('product').value;
+            const message = document.getElementById('message').value;
+            const phoneNumber = "628811205935"; 
+
+            if (!name.trim() || !message.trim()) {
+                alert("Mohon isi nama dan pesan Anda terlebih dahulu.");
+                return;
+            }
+
+            const intro = "Halo min, minta link pembeliannya dong.";
+            const details = `\n\n*Detail Konsultasi:*\n*Nama:* ${name}\n*Produk:* ${product || '-'}\n*Pesan:* ${message}`;
+            const fullText = encodeURIComponent(intro + details);
+            
+            window.open(`https://wa.me/${phoneNumber}?text=${fullText}`, '_blank').focus();
+        }
+    </script>
+</body>
+</html>

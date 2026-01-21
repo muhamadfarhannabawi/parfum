@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warisan Kami — MIFTAH</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Desain Khusus Halaman Tentang */
+        .about-hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), #080808),
+                        url('https://images.unsplash.com/photo-1592914610354-fd354ea45e48?q=80&w=1600') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .section-label {
+            color: var(--gold);
+            letter-spacing: 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .editorial-grid {
+            padding: 150px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .editorial-image {
+            position: relative;
+            height: 750px;
+        }
+
+        .editorial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: 30px 30px 0px -10px rgba(201, 164, 76, 0.1);
+        }
+
+        .floating-cite {
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            background: var(--gold);
+            color: black;
+            padding: 40px;
+            max-width: 300px;
+            font-family: 'Playfair Display';
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .philosophy-card {
+            background: #0d0d0d;
+            padding: 80px;
+            border: 1px solid rgba(201, 164, 76, 0.1);
+            text-align: center;
+            margin: 100px 8%;
+        }
+
+        .parallax-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1615485244910-97f96095963a?q=80&w=1600') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 100px 0;
+        }
+
+        @media (max-width: 992px) {
+            .editorial-grid { grid-template-columns: 1fr; gap: 60px; padding: 80px 5%; }
+            .editorial-image { height: 500px; }
+            .floating-cite { right: 0; bottom: -20px; padding: 20px; font-size: 1rem; }
+        }
+    </style>
+    <style>
+    .wa-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        z-index: 9999; /* Agar selalu di atas elemen lain */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .wa-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        color: white;
+    }
+
+    /* Efek denyut (pulsing) untuk menarik perhatian */
+    .wa-float::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #25d366;
+        border-radius: 50%;
+        z-index: -1;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* Penyesuaian untuk layar HP agar tidak menutupi konten */
+    @media screen and (max-width: 768px) {
+        .wa-float {
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
+            font-size: 25px;
+        }
+    }
+</style>
+
+<a href="https://wa.me/628811205935?text=Hallo%20min%2C%20minta%20link%20pembeliannya%20dong" 
+   class="wa-float" 
+   target="_blank" 
+   rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+</a>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">MIFTAH</a>
+        <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="koleksi.html">Koleksi</a></li>
+            <li><a href="tentang.html" class="active">Tentang Kami</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header class="about-hero">
+        <div class="hero-content">
+            <span class="section-label">Estetika Abadi</span>
+            <h1 style="font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -2px;">Seni Mencipta Memori</h1>
+        </div>
+    </header>
+
+    <section class="editorial-grid">
+        <div class="editorial-image">
+            <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?q=80&w=800" alt="Proses Pembuatan">
+            <div class="floating-cite">
+                "Kualitas adalah satu-satunya bahasa yang kami gunakan."
+            </div>
+        </div>
+        <div class="editorial-text">
+            <span class="section-label">Awal Mula</span>
+            <h2 style="font-size: 3.5rem; line-height: 1; margin-bottom: 30px;">Kekuatan dalam Kelembutan.</h2>
+            <p style="color: var(--gray); font-size: 1.1rem; margin-bottom: 25px;">
+                Miftah Parfum didirikan di tahun 2026 dengan satu visi: mengembalikan martabat parfum artisan ke tangan yang menghargai ketelitian. Kami percaya bahwa parfum bukan sekadar wewangian, melainkan jubah tak kasat mata yang mendefinisikan kehadiran Anda.
+            </p>
+            <p style="color: var(--gray); font-size: 1.1rem;">
+                Setiap tetes Miftah adalah hasil dari ribuan jam riset olfaktori, menggabungkan metode distilasi kuno dengan presisi teknologi modern untuk menciptakan ketahanan yang melampaui waktu.
+            </p>
+        </div>
+    </section>
+
+    <section class="philosophy-card">
+        <span class="section-label">Komitmen Kami</span>
+        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">Bahan Alami, Jiwa yang Murni</h2>
+        <div class="divider" style="margin: 0 auto 40px;"></div>
+        <p style="max-width: 800px; margin: 0 auto; color: var(--gray); font-size: 1.2rem; line-height: 2;">
+            Kami menolak penggunaan bahan kimia sintetis yang kasar. Sebagai gantinya, kami menjelajahi dunia—dari mawar Grasse di Prancis hingga gaharu murni Kalimantan—untuk memastikan hanya esensi terbaik yang menyentuh kulit Anda.
+        </p>
+    </section>
+
+    <section class="parallax-section">
+        <div style="text-align: center; color: var(--gold);">
+            <h2 style="font-family: 'Playfair Display'; font-size: 4rem; font-style: italic;">Indrawi & Eksklusif</h2>
+            <p class="section-label" style="margin-top: 10px; color: var(--white);">Hanya Untuk Yang Menghargai Keindahan</p>
+        </div>
+    </section>
+
+    <section class="editorial-grid" style="padding-top: 50px;">
+        <div class="editorial-text">
+            <span class="section-label">Standar Global</span>
+            <h2 style="font-size: 3.5rem; line-height: 1; margin-bottom: 30px;">Melampaui Batas Benua.</h2>
+            <p style="color: var(--gray); font-size: 1.1rem;">
+                Kehadiran kami di Paris, Jakarta, dan Dubai bukan sekadar lokasi kantor. Itu adalah bukti bahwa standar aroma kami diterima di pusat mode dunia dan pusat kemewahan Timur Tengah.
+            </p>
+        </div>
+        <div class="editorial-image">
+            <img src="https://images.unsplash.com/photo-1594122230689-45899d9e6f69?q=80&w=800" alt="Kemewahan">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2 class="logo-footer">MIFTAH</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/miftandofficial.co?igsh=MWM3c3p2ZnVmM3FmbA==" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@miftandofficial.com" target="_blank" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2026 MIFTAH PARFUM. Dibuat dengan Sepenuh Hati.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+  

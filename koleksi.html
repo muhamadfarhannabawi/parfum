@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi — MIFTAH | Produk Eksklusif</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* LUXURY OVERRIDE */
+        body { background-color: #080808; }
+
+        .gallery-header {
+            text-align: center;
+            padding: 160px 0 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s forwards;
+        }
+        
+        .gallery-header h2 {
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: -2px;
+            color: var(--white);
+            text-transform: capitalize;
+        }
+
+        .gallery-header .label {
+            letter-spacing: 8px;
+            font-size: 10px;
+            color: var(--gold);
+            margin-top: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 120px 40px;
+            padding-bottom: 150px;
+        }
+
+        /* Efek Zig-Zag untuk Desktop */
+        @media (min-width: 993px) {
+            .product-card:nth-child(even) {
+                margin-top: 150px;
+            }
+        }
+
+        .product-card {
+            position: relative;
+            background: transparent !important;
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .product-img {
+            height: 600px !important;
+            margin-bottom: 25px;
+            background: #111;
+            overflow: hidden;
+            clip-path: inset(0% 0% 0% 0%);
+            transition: clip-path 0.8s ease;
+        }
+
+        .product-card:hover .product-img {
+            clip-path: inset(2% 2% 2% 2%);
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(40%) contrast(1.1);
+            transition: all 1.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .product-info {
+            padding: 0 10px !important;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .product-info p {
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: var(--gray);
+            opacity: 0.7;
+        }
+
+        .card-number {
+            font-size: 12px;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: block;
+            font-family: 'Poppins';
+            font-weight: 200;
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .product-grid { grid-template-columns: 1fr; gap: 80px; }
+            .product-card:nth-child(even) { margin-top: 0; }
+            .product-img { height: 500px !important; }
+        }
+
+        
+    </style>
+    <style>
+    .wa-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        z-index: 9999; /* Agar selalu di atas elemen lain */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .wa-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+        color: white;
+    }
+
+    /* Efek denyut (pulsing) untuk menarik perhatian */
+    .wa-float::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #25d366;
+        border-radius: 50%;
+        z-index: -1;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* Penyesuaian untuk layar HP agar tidak menutupi konten */
+    @media screen and (max-width: 768px) {
+        .wa-float {
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
+            font-size: 25px;
+        }
+    }
+</style>
+
+<a href="https://wa.me/628811205935?text=Hallo%20min%2C%20minta%20link%20pembeliannya%20dong" 
+   class="wa-float" 
+   target="_blank" 
+   rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+</a>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MIFTAH</div>
+        <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="koleksi.html" class="active">Koleksi</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="gallery-header">
+            <p class="label">EDISI TERBATAS 2026</p>
+            <h2>Koleksi Kami</h2>
+            <div style="width: 1px; height: 60px; background: var(--gold); margin: 30px auto; opacity: 0.5;"></div>
+        </div>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <span class="card-number">N&deg; 01</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800" alt="Oud Majestic">
+                </div>
+                <div class="product-info">
+                    <h3>OUD MAJESTIC</h3>
+                    <p>KEAGUNGAN &bull; KEKUATAN &bull; WARISAN</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="card-number">N&deg; 02</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800" alt="Rose Velvet">
+                </div>
+                <div class="product-info">
+                    <h3>ROSE VELVET</h3>
+                    <p>LEMBUT &bull; FLORAL &bull; GODAAN</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="card-number">N&deg; 03</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800" alt="Midnight Blue">
+                </div>
+                <div class="product-info">
+                    <h3>MIDNIGHT BLUE</h3>
+                    <p>MISTERI &bull; SAMUDRA &bull; KETENANGAN</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="card-number">N&deg; 04</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800" alt="Saffron Gold">
+                </div>
+                <div class="product-info">
+                    <h3>SAFFRON GOLD</h3>
+                    <p>REMPAH &bull; KILAU &bull; KEMEWAHAN</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="card-number">N&deg; 05</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?q=80&w=800" alt="Citrus Zen">
+                </div>
+                <div class="product-info">
+                    <h3>CITRUS ZEN</h3>
+                    <p>DINAMIS &bull; SEGAR &bull; VITALITAS</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="card-number">N&deg; 06</span>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4?q=80&w=800" alt="Eternal Night">
+                </div>
+                <div class="product-info">
+                    <h3>ETERNAL NIGHT</h3>
+                    <p>GELAP &bull; MUSK &bull; INTENS</p>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2 class="logo-footer">MIFTAH</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/miftandofficial.co?igsh=MWM3c3p2ZnVmM3FmbA==" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@miftandofficial.com" target="_blank" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2026 MIFTAH PARFUM. Dibuat dengan Sepenuh Hati.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
